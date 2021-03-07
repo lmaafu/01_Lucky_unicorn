@@ -5,8 +5,8 @@ import random
 tokens = ["unicorn", "horse", "zebra", "donkey"]
 balance = 100
 
-# Testing loop to generate 10 tokens
-for item in range(0,20):
+# Testing loop to generate 20 tokens
+for item in range(0, 100):
     chosen = random.choice(tokens)
 
     # Adjust balance
@@ -15,7 +15,7 @@ for item in range(0,20):
     elif chosen == "donkey":
         balance -= 1
     else:
-        balance = 0.5
+        balance -= 0.5
 
-    # Output
-print(" Token: {} , Balance: ${}" .format(chosen, balance))
+# output
+    print("Token: {} , Balance: ${}".format(chosen, balance))
