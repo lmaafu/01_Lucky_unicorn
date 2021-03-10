@@ -1,8 +1,10 @@
-import random
+greeting = "hello world"
+sides = "*" *3
 
-colour = input("Choose a colour: ")
-item = input("Choose an item: ")
+greeting = "{} {} {}".format(sides, greeting, sides)
 
-statement = "The {} is {}".format(item, colour)
+top_bottom = "*" * len(greeting)
 
-print(statement)
+print(top_bottom)
+print(greeting)
+print(top_bottom)

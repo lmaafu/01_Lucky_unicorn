@@ -1,6 +1,6 @@
 import random
 
-# Fuction go here...
+# Function go here...
 def yes_no(question):
     valid = False
     while not valid:
@@ -49,6 +49,19 @@ def num_check(question, low, high):
 # Main Routine goes here....
 played_before = yes_no("Have you played the game before? ")
 
+def statement_generator(statement, decoration):
+
+    sides = decoration * 3
+
+    statement = "{} {} {}".format(sides, statement, sides)
+    top_bottom = decoration * len(statement)
+
+    print(top_bottom)
+    print(statement)
+    print(top_bottom)
+
+    return ""
+
 if played_before == "no":
     instructions()
 
@@ -64,7 +77,7 @@ play_again = input("Press <Enter> to play...").lower()
 while play_again == "":
 
         # increase # of rounds played
-rounds_played += 1
+    rounds_played += 1
 
 # Print round number
 print("*** Round #{} ***".format(rounds_played))
@@ -76,24 +89,28 @@ chosen_num = random.randint(1, 100)
 # user gets a unicorn (add $4 to balance
 if 1 <= chosen_num <= 5:
     chosen = "unicorn"
+    decoration = "U"
     balance += 4
     # if the random # is between 6 and 36
     # user gets a donkey (subtract $1 from balance)
 elif 6 <= chosen_num <= 36:
     chosen = "donkey"
+    prize_decoration = "D"
     balance -= 1
     # The token is either a horse or zebra ....
     # in both cases, subtract $0.50 from the balance
 else:
     if chosen_num % 2 == 0:
         chosen = "horse"
+        prize_decorations = "H"
         # otherwise set it to a zebra
     else:
         chosen = "zebra"
+        prize_decoration = "Z"
     balance -= 0.5
-
-print("You got a {}. Your balance is "
-      "${:.2f}".format(chosen, balance))
+outcome = "You got a {}. Your balance is " \
+          "${:.2f}".format(chosen, balance)
+statement_generator(outcome, prize_decoration)
 
 if balance < 1:
     # If balance is to low, exit the game and
